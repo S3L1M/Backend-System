@@ -8,6 +8,16 @@ services:
     depends_on:
       - api-gateway
 
+  api-gateway:
+    image: nginx
+    restart: on-failure
+    build: ./gateway
+    ports:
+      - "8000:80"
+    depends_on:
+      - accounts-service
+      - inventory-service
+
   accounts-service:
     build: ./accounts-service
     restart: on-failure
