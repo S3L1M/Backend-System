@@ -1,0 +1,6 @@
+flask
+redis
+Flask-SQLAlchemy
+Flask_Caching
+psycopg2-binary
+python-lorem
