@@ -48,3 +48,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: inventory_db
+
+  caching-db:
+    image: redis
+    restart: unless-stopped
