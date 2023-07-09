@@ -7,3 +7,34 @@ services:
       - "8080:80"
     depends_on:
       - api-gateway
+
+  accounts-service:
+    build: ./accounts-service
+    restart: on-failure
+    depends_on:
+      - db1
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db1/accounts_db
+
+  db1:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: accounts_db
+
+  inventory-service:
+    build: ./inventory-service
+    restart: on-failure
+    depends_on:
+      - db2
+      - caching-db
+
+  db2:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: inventory_db
