@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  frontend-server:
+    image: nginx
+    build: ./frontend-server
+    ports:
+      - "8080:80"
+    depends_on:
+      - api-gateway
