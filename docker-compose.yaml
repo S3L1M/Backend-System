@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   frontend-server:
+    name: frontend
     image: nginx
     build: ./frontend-server
     ports:
@@ -9,6 +10,7 @@ services:
       - api-gateway
 
   api-gateway:
+    name: api-gateway
     image: nginx
     restart: on-failure
     build: ./gateway
@@ -19,6 +21,7 @@ services:
       - inventory-service
 
   accounts-service:
+    name: accounts-api
     build: ./accounts-service
     restart: on-failure
     depends_on:
@@ -27,6 +30,7 @@ services:
       - DATABASE_URL=postgresql://postgres:password@db1/accounts_db
 
   db1:
+    name: accounts-db
     image: postgres
     restart: unless-stopped
     environment:
@@ -35,6 +39,7 @@ services:
       POSTGRES_DB: accounts_db
 
   inventory-service:
+    name: inventory-api
     build: ./inventory-service
     restart: on-failure
     depends_on:
@@ -42,6 +47,7 @@ services:
       - caching-db
 
   db2:
+    name: inventory-db
     image: postgres
     restart: unless-stopped
     environment:
@@ -50,5 +56,6 @@ services:
       POSTGRES_DB: inventory_db
 
   caching-db:
+    name: redis-caching
     image: redis
     restart: unless-stopped
