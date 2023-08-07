@@ -43,7 +43,11 @@ The APIs will be accessible through API gateway (Ngnix) at `http://localhost:800
 
 ## Usage
 
-This template backend provides two different APIs using FastAPI and Flask frameworks. You can use any of these APIs based on your preference and requirements. The API endpoints are detailed in the next section.
+This template backend provides two different APIs using FastAPI and Flask frameworks. You can use any of these APIs based on your preference and requirements. The API endpoints are detailed in [endpoints](#endpoints) section.
+
+### Architecutre
+
+<img src="https://github.com/S3L1M/Backend-System/assets/28127068/ff5c2e9a-6fa3-4d01-9578-7b52d699ea08" width=70% height=70%>
 
 ### Inventory dummy data
 
