@@ -119,7 +119,7 @@ redis-commander:
       "password": "<string>"
    }
   ``` 
-  **Note:** Authenticated is NOT implemented. Recommended: `Keycloak`
+  **Note:** Authentication is NOT implemented. Recommended: `Keycloak`
 
 ## Technologies Used
 
